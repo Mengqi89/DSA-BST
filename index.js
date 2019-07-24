@@ -210,3 +210,15 @@ function main() {
     let Max = Number.MAX_VALUE; //?
     is_bst(tree, Min, Max)
 }
+
+function thirdLargest(tree, state) {
+    let count = t.value;
+
+    if (tree.right) {
+
+    }
+}
+
+function balancedBST(tree) {
+
+}
