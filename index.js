@@ -140,3 +140,73 @@ class BinarySearchTree {
         return this.left._findMin();
     }
 }
+
+// Walk through the binary search tree code in the curriculum and understand it well.Then write a BinarySearchTree class with its core functions(insert(), remove(), find()) from scratch.
+
+// Create a binary search tree called BST and insert 3, 1, 4, 6, 9, 2, 5, 7 into your tree.Compare your result with the result from the 1st exercise.
+// Create a binary search tree called BST and insert E A S Y Q U E S T I O N into your tree.Compare your result with the result from the 1st exercise.
+
+const BST = new BinarySearchTree()
+BST.insert(3, 3)
+BST.insert(1, 1)
+BST.insert(4, 4)
+BST.insert(6, 6)
+BST.insert(9, 9)
+BST.insert(2, 2)
+BST.insert(5, 5)
+BST.insert(7, 7)
+// console.log(BST)
+
+// BST.insert('E', 'E')
+// BST.insert('A', 'A')
+// BST.insert('S', 'S')
+// BST.insert('Y', 'Y')
+// BST.insert('Q', 'Q')
+// BST.insert('U', 'U')
+// BST.insert('E', 'E')
+// BST.insert('S', 'S')
+// console.log(BST)
+
+function tree(t) {
+    if (!t) {
+        return 0;
+    }
+    return tree(t.left) + t.value + tree(t.right)
+}
+
+// console.log(tree(BST))
+
+function bst_height2(tree) {
+    if (tree.left && tree.right)
+        return Math.max(bst_height2(tree.left),
+            bst_height2(tree.right)) + 1;
+    if (tree.left)
+        return bst_height2(tree.left) + 1;
+    if (tree.right)
+        return bst_height2(tree.right) + 1;
+    return 1;
+}
+
+// console.log(bst_height2(BST))
+function isBST(tree) {
+    if (tree.left && tree.right) {
+
+    }
+}
+
+function is_bst(tree, minimum, maximum) {
+    if (minimum !== undefined && tree.key < minimum)
+        return false;
+    if (maximum !== undefined && tree.key > maximum)
+        return false;
+    if (tree.left && !is_bst(tree.left, minimum, tree.key))
+        return false;
+    if (tree.right && !is_bst(tree.right, tree.key, maximum))
+        return false;
+    return true;
+}
+function main() {
+    let Min = Number.MIN_VALUE; //?
+    let Max = Number.MAX_VALUE; //?
+    is_bst(tree, Min, Max)
+}
